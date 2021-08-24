@@ -9,7 +9,6 @@ import UIKit
 import EyezonSDK
 
 class ViewController: UIViewController {
-    
     private enum Constants {
         static let EYEZON_WIDGET_URL =
             "https://storage.googleapis.com/eyezonfortest/test-widget/webview.html?eyezon&putInCart=true&eyezonRegion=sandbox&language=ru&target=SKU-1&title=Samsung%20Television&name=Test&phone=%2B3801111111111&email=test@test.test&clientId=test123&region=Brest"
