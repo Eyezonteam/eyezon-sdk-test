@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84183927270DD32000B137FC /* EyezonSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84183926270DD32000B137FC /* EyezonSDK.xcframework */; };
+		84183928270DD32000B137FC /* EyezonSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84183926270DD32000B137FC /* EyezonSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8439D83C26CC51230042B201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D83B26CC51230042B201 /* AppDelegate.swift */; };
 		8439D83E26CC51230042B201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D83D26CC51230042B201 /* SceneDelegate.swift */; };
 		8439D84026CC51230042B201 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D83F26CC51230042B201 /* ViewController.swift */; };
 		8439D84326CC51230042B201 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8439D84126CC51230042B201 /* Main.storyboard */; };
 		8439D84526CC51250042B201 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8439D84426CC51250042B201 /* Assets.xcassets */; };
 		8439D84826CC51250042B201 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8439D84626CC51250042B201 /* LaunchScreen.storyboard */; };
-		84CC775926F0EFE8007CDF6F /* EyezonSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CC775826F0EFE8007CDF6F /* EyezonSDK.xcframework */; };
-		84CC775A26F0EFE8007CDF6F /* EyezonSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84CC775826F0EFE8007CDF6F /* EyezonSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		844954D026D3A630000B12AC /* Embed Frameworks */ = {
+		84183929270DD32000B137FC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84CC775A26F0EFE8007CDF6F /* EyezonSDK.xcframework in Embed Frameworks */,
+				84183928270DD32000B137FC /* EyezonSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		8401A1D426CC5B7600148183 /* EyezonSDK-Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "EyezonSDK-Test.entitlements"; sourceTree = "<group>"; };
+		84183926270DD32000B137FC /* EyezonSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = EyezonSDK.xcframework; path = ../build/EyezonSDK.xcframework; sourceTree = "<group>"; };
 		8439D83826CC51230042B201 /* EyezonSDK-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EyezonSDK-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8439D83B26CC51230042B201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8439D83D26CC51230042B201 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		8439D84426CC51250042B201 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8439D84726CC51250042B201 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8439D84926CC51250042B201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84CC775826F0EFE8007CDF6F /* EyezonSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = EyezonSDK.xcframework; path = ../../build/EyezonSDK.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CC775926F0EFE8007CDF6F /* EyezonSDK.xcframework in Frameworks */,
+				84183927270DD32000B137FC /* EyezonSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 		84FF8EA726CC56C100E01A5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84CC775826F0EFE8007CDF6F /* EyezonSDK.xcframework */,
+				84183926270DD32000B137FC /* EyezonSDK.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -106,7 +106,7 @@
 				8439D83426CC51230042B201 /* Sources */,
 				8439D83526CC51230042B201 /* Frameworks */,
 				8439D83626CC51230042B201 /* Resources */,
-				844954D026D3A630000B12AC /* Embed Frameworks */,
+				84183929270DD32000B137FC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,7 +246,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -301,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -318,10 +318,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "EyezonSDK-Test/EyezonSDK-Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = JA2M8SY5S4;
 				INFOPLIST_FILE = "EyezonSDK-Test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,10 +341,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "EyezonSDK-Test/EyezonSDK-Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = JA2M8SY5S4;
 				INFOPLIST_FILE = "EyezonSDK-Test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
