@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import EyezonSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
