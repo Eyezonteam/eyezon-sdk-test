@@ -8,16 +8,16 @@
 import UIKit
 import EyezonSDK
 
-var apnToken = ""
-var bundleID = ""
+var apnToken = "Device token is empty"
+var bundleID = "BundleID is empty"
 
 class ViewController: UIViewController {
     
     private enum Constants {
-        static let EYEZON_WIDGET_URL = "https://storage.googleapis.com/eyezonfortest/test-widget/webview.html?eyezon&businessId=5d63fe246c2590002eecef83&language=ru&buttonId=5ec26f248107de3797f0807c&target=SKU-1&title=Samsung%20Television&apnToken=\(apnToken)&application=\(bundleID)&eyezonRegion=sandbox"
+        static let EYEZON_WIDGET_URL = "https://storage.googleapis.com/eyezonfortest/test-widget/webview.html?eyezon&businessId=6218dd27db9a30520ac435a8&language=ru&buttonId=6218e02a82d1c1eb6cc7db48&target=SKU-1&title=Samsung%20Television&apnToken=\(apnToken)&application=\(bundleID)&eyezonRegion=sandbox"
         
-        static let EYEZON_BUSINESS_ID = "5d63fe246c2590002eecef83"
-        static let EYEZON_BUTTON_ID = "5ec26f248107de3797f0807c"
+        static let EYEZON_BUSINESS_ID = "6218dd27db9a30520ac435a8"
+        static let EYEZON_BUTTON_ID = "6218e02a82d1c1eb6cc7db48"
     }
     
     private var predefinedData: EyezonSDKData {
@@ -27,13 +27,30 @@ class ViewController: UIViewController {
             widgetUrl: Constants.EYEZON_WIDGET_URL
         )
     }
+    
+    private var interfaceData: EyezonSDKInterfaceBuilder {
+        EyezonSDKInterfaceBuilder(isNavigationController: false,
+                                  navBarBackgroundColor: .white,
+                                  navBarTitleText: "Eyezon",
+                                  navBarTitleColor: UIColor.black,
+                                  navBarBackButtonText: "Back",
+                                  navBarBackButtonColor: UIColor(red: 1.00, green: 0.18, blue: 0.33, alpha: 1.00),
+                                  navBarBackButtonLeftPosition: false
+        )
+    }
+    
     private var servers: [ServerArea] {
         [.russia, .europe, .usa, .sandbox]
     }
+    
     private let selectedServer: ServerArea = .sandbox
     
     @IBAction func startButton(_ sender: Any) {
         openEyezon()
+    }
+    
+    @IBAction func logOutButton(_ sender: Any) {
+        logout()
     }
     
     override func viewDidLoad() {
@@ -48,16 +65,28 @@ class ViewController: UIViewController {
         
         bundleID = Bundle.main.bundleIdentifier ?? "BundleID is empty"
         
-        Eyezon.instance.initSdk(area: selectedServer) { [weak self, predefinedData] in
-            let eyezonWebViewController = Eyezon.instance.openButton(data: predefinedData, broadcastReceiver: self)
-            print(Constants.EYEZON_WIDGET_URL)
-            self?.navigationController?.pushViewController(eyezonWebViewController, animated: true)
+        Eyezon.instance.initSdk(area: selectedServer) { [weak self, predefinedData, interfaceData] in
+            guard let strongSelf = self else { return }
+            let eyezonWebViewController = Eyezon.instance.openButton(data: predefinedData, interfaceBuilder: interfaceData, broadcastReceiver: strongSelf)
+            strongSelf.present(eyezonWebViewController, animated: true, completion: nil)
+            
+            // strongSelf.navigationController?.pushViewController(eyezonWebViewController, animated: true)
+        }
+    }
+    
+    @objc
+    private func logout() {
+        Eyezon.instance.logout { logout, error in
+            guard error == nil else {
+                print(error?.localizedDescription as Any)
+                return
+            }
+            print("Success logout")
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
 

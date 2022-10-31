@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test-frameworks.sh
+${BUILT_PRODUCTS_DIR}/EyezonSDK/EyezonSDK.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework

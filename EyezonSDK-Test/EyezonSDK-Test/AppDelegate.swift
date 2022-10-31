@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EyezonSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
         self.pushToken = tokenString
+        Eyezon.instance.initMessaging(apnsData: deviceToken)
         print("Device Token: \(tokenString)")
     }
     
@@ -70,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Notification settings: \(settings)")
         }
     }
-    
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
