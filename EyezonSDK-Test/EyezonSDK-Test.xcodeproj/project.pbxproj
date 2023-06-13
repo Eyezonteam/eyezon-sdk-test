@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C6C5BC0706ABB0BA20D98DD /* Pods_EyezonSDK_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13973E91B7699795DBC5FE9D /* Pods_EyezonSDK_Test.framework */; };
 		8439D83C26CC51230042B201 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D83B26CC51230042B201 /* AppDelegate.swift */; };
 		8439D83E26CC51230042B201 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D83D26CC51230042B201 /* SceneDelegate.swift */; };
 		8439D84026CC51230042B201 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439D83F26CC51230042B201 /* ViewController.swift */; };
 		8439D84326CC51230042B201 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8439D84126CC51230042B201 /* Main.storyboard */; };
 		8439D84526CC51250042B201 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8439D84426CC51250042B201 /* Assets.xcassets */; };
 		8439D84826CC51250042B201 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8439D84626CC51250042B201 /* LaunchScreen.storyboard */; };
-		FEF01B5EE41FB1042D0640F4 /* Pods_EyezonSDK_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B612434705E984E6F5A06138 /* Pods_EyezonSDK_Test.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,7 +30,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		39246BDA098698B574BA19EF /* Pods-EyezonSDK-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyezonSDK-Test.debug.xcconfig"; path = "Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test.debug.xcconfig"; sourceTree = "<group>"; };
+		13973E91B7699795DBC5FE9D /* Pods_EyezonSDK_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EyezonSDK_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BCB1A12FEDF20B9B114EB6C /* Pods-EyezonSDK-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyezonSDK-Test.release.xcconfig"; path = "Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test.release.xcconfig"; sourceTree = "<group>"; };
+		375C3F22ECACB77972FADF4E /* Pods-EyezonSDK-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyezonSDK-Test.debug.xcconfig"; path = "Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test.debug.xcconfig"; sourceTree = "<group>"; };
 		8401A1D426CC5B7600148183 /* EyezonSDK-Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "EyezonSDK-Test.entitlements"; sourceTree = "<group>"; };
 		8439D83826CC51230042B201 /* EyezonSDK-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EyezonSDK-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8439D83B26CC51230042B201 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,8 +42,6 @@
 		8439D84426CC51250042B201 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8439D84726CC51250042B201 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8439D84926CC51250042B201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A631ECA81D37FA4A62568A03 /* Pods-EyezonSDK-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyezonSDK-Test.release.xcconfig"; path = "Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test.release.xcconfig"; sourceTree = "<group>"; };
-		B612434705E984E6F5A06138 /* Pods_EyezonSDK_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EyezonSDK_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEF01B5EE41FB1042D0640F4 /* Pods_EyezonSDK_Test.framework in Frameworks */,
+				7C6C5BC0706ABB0BA20D98DD /* Pods_EyezonSDK_Test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,10 +59,18 @@
 		03780EFFD7A7A779BE30C9B0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				39246BDA098698B574BA19EF /* Pods-EyezonSDK-Test.debug.xcconfig */,
-				A631ECA81D37FA4A62568A03 /* Pods-EyezonSDK-Test.release.xcconfig */,
+				375C3F22ECACB77972FADF4E /* Pods-EyezonSDK-Test.debug.xcconfig */,
+				1BCB1A12FEDF20B9B114EB6C /* Pods-EyezonSDK-Test.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		41C8A852BBDE5D0F5738904B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13973E91B7699795DBC5FE9D /* Pods_EyezonSDK_Test.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8439D82F26CC51230042B201 = {
@@ -70,8 +78,8 @@
 			children = (
 				8439D83A26CC51230042B201 /* EyezonSDK-Test */,
 				8439D83926CC51230042B201 /* Products */,
-				84FF8EA726CC56C100E01A5F /* Frameworks */,
 				03780EFFD7A7A779BE30C9B0 /* Pods */,
+				41C8A852BBDE5D0F5738904B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,14 +106,6 @@
 			path = "EyezonSDK-Test";
 			sourceTree = "<group>";
 		};
-		84FF8EA726CC56C100E01A5F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B612434705E984E6F5A06138 /* Pods_EyezonSDK_Test.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,12 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8439D84C26CC51250042B201 /* Build configuration list for PBXNativeTarget "EyezonSDK-Test" */;
 			buildPhases = (
-				98E1C32BE7D756841DE72571 /* [CP] Check Pods Manifest.lock */,
+				855299D1805C1661A2DA142B /* [CP] Check Pods Manifest.lock */,
 				8439D83426CC51230042B201 /* Sources */,
 				8439D83526CC51230042B201 /* Frameworks */,
 				8439D83626CC51230042B201 /* Resources */,
 				842D9CBE2715940A0017CA63 /* Embed Frameworks */,
-				F636111B29B1565CEDDF2564 /* [CP] Embed Pods Frameworks */,
+				053DAF5484A08E2A204AF0BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,7 +175,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		98E1C32BE7D756841DE72571 /* [CP] Check Pods Manifest.lock */ = {
+		053DAF5484A08E2A204AF0BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		855299D1805C1661A2DA142B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -195,23 +212,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F636111B29B1565CEDDF2564 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EyezonSDK-Test/Pods-EyezonSDK-Test-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -367,13 +367,13 @@
 		};
 		8439D84D26CC51250042B201 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39246BDA098698B574BA19EF /* Pods-EyezonSDK-Test.debug.xcconfig */;
+			baseConfigurationReference = 375C3F22ECACB77972FADF4E /* Pods-EyezonSDK-Test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "EyezonSDK-Test/EyezonSDK-Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = JA2M8SY5S4;
 				INFOPLIST_FILE = "EyezonSDK-Test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -391,13 +391,13 @@
 		};
 		8439D84E26CC51250042B201 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A631ECA81D37FA4A62568A03 /* Pods-EyezonSDK-Test.release.xcconfig */;
+			baseConfigurationReference = 1BCB1A12FEDF20B9B114EB6C /* Pods-EyezonSDK-Test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "EyezonSDK-Test/EyezonSDK-Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = JA2M8SY5S4;
 				INFOPLIST_FILE = "EyezonSDK-Test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
