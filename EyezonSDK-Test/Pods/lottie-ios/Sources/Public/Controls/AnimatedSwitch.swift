@@ -6,65 +6,79 @@
 //
 
 import Foundation
-#if os(iOS) || os(tvOS) || os(watchOS) || targetEnvironment(macCatalyst)
+
+#if canImport(UIKit)
 import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
+// MARK: - AnimatedSwitch
 
 /// An interactive switch with an 'On' and 'Off' state. When the user taps on the
 /// switch the state is toggled and the appropriate animation is played.
 ///
 /// Both the 'On' and 'Off' have an animation play range associated with their state.
+///
+/// Also available as a SwiftUI view (`LottieSwitch`).
 open class AnimatedSwitch: AnimatedControl {
 
   // MARK: Lifecycle
 
   public override init(
-    animation: LottieAnimation,
+    animation: LottieAnimation?,
     configuration: LottieConfiguration = .shared)
   {
     /// Generate a haptic generator if available.
     #if os(iOS)
-    if #available(iOS 10.0, *) {
-      self.hapticGenerator = HapticGenerator()
-    } else {
-      hapticGenerator = NullHapticGenerator()
-    }
+    hapticGenerator = HapticGenerator()
     #else
     hapticGenerator = NullHapticGenerator()
     #endif
     super.init(animation: animation, configuration: configuration)
+
+    #if canImport(UIKit)
     isAccessibilityElement = true
+    #elseif canImport(AppKit)
+    setAccessibilityElement(true)
+    #endif
+
     updateOnState(isOn: _isOn, animated: false, shouldFireHaptics: false)
   }
 
   public override init() {
     /// Generate a haptic generator if available.
     #if os(iOS)
-    if #available(iOS 10.0, *) {
-      self.hapticGenerator = HapticGenerator()
-    } else {
-      hapticGenerator = NullHapticGenerator()
-    }
+    hapticGenerator = HapticGenerator()
     #else
     hapticGenerator = NullHapticGenerator()
     #endif
+
     super.init()
+
+    #if canImport(UIKit)
     isAccessibilityElement = true
+    #elseif canImport(AppKit)
+    setAccessibilityElement(true)
+    #endif
+
     updateOnState(isOn: _isOn, animated: false, shouldFireHaptics: false)
   }
 
   required public init?(coder aDecoder: NSCoder) {
     /// Generate a haptic generator if available.
     #if os(iOS)
-    if #available(iOS 10.0, *) {
-      self.hapticGenerator = HapticGenerator()
-    } else {
-      hapticGenerator = NullHapticGenerator()
-    }
+    hapticGenerator = HapticGenerator()
     #else
     hapticGenerator = NullHapticGenerator()
     #endif
     super.init(coder: aDecoder)
+
+    #if canImport(UIKit)
     isAccessibilityElement = true
+    #elseif canImport(AppKit)
+    setAccessibilityElement(true)
+    #endif
   }
 
   // MARK: Open
@@ -73,11 +87,22 @@ open class AnimatedSwitch: AnimatedControl {
     updateOnState(isOn: _isOn, animated: animateUpdateWhenChangingAnimation, shouldFireHaptics: false)
   }
 
+  #if canImport(UIKit)
   open override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
     super.endTracking(touch, with: event)
     updateOnState(isOn: !_isOn, animated: true, shouldFireHaptics: true)
     sendActions(for: .valueChanged)
   }
+
+  #elseif canImport(AppKit)
+  open override func handle(_ event: LottieNSControlEvent) {
+    super.handle(event)
+
+    if event == .touchUpInside {
+      updateOnState(isOn: !_isOn, animated: true, shouldFireHaptics: true)
+    }
+  }
+  #endif
 
   // MARK: Public
 
@@ -94,10 +119,15 @@ open class AnimatedSwitch: AnimatedControl {
   /// If `false` the switch will not play the animation when changing between animations.
   public var animateUpdateWhenChangingAnimation = true
 
+  #if canImport(UIKit)
   public override var accessibilityTraits: UIAccessibilityTraits {
     set { super.accessibilityTraits = newValue }
     get { super.accessibilityTraits.union(.button) }
   }
+  #endif
+
+  /// A closure that is called when the `isOn` state is updated
+  public var stateUpdated: ((_ isOn: Bool) -> Void)?
 
   /// The current state of the switch.
   public var isOn: Bool {
@@ -135,6 +165,11 @@ open class AnimatedSwitch: AnimatedControl {
   }
 
   // MARK: Internal
+
+  private(set) var onStartProgress: CGFloat = 0
+  private(set) var onEndProgress: CGFloat = 1
+  private(set) var offStartProgress: CGFloat = 1
+  private(set) var offEndProgress: CGFloat = 0
 
   // MARK: Animation State
 
@@ -188,21 +223,27 @@ open class AnimatedSwitch: AnimatedControl {
 
   // MARK: Fileprivate
 
-  fileprivate var onStartProgress: CGFloat = 0
-  fileprivate var onEndProgress: CGFloat = 1
-  fileprivate var offStartProgress: CGFloat = 1
-  fileprivate var offEndProgress: CGFloat = 0
-  fileprivate var _isOn = false
   fileprivate var hapticGenerator: ImpactGenerator
+
+  fileprivate var _isOn = false {
+    didSet {
+      stateUpdated?(_isOn)
+    }
+  }
 
   // MARK: Private
 
   private func updateAccessibilityLabel() {
-    accessibilityValue = _isOn ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
+    let value = _isOn ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
+
+    #if canImport(UIKit)
+    accessibilityValue = value
+    #elseif canImport(AppKit)
+    setAccessibilityValue(value)
+    #endif
   }
 
 }
-#endif
 
 // MARK: - ImpactGenerator
 
@@ -210,14 +251,7 @@ protocol ImpactGenerator {
   func generateImpact()
 }
 
-// MARK: - NullHapticGenerator
-
-class NullHapticGenerator: ImpactGenerator {
-  func generateImpact() { }
-}
-
 #if os(iOS)
-@available(iOS 10.0, *)
 class HapticGenerator: ImpactGenerator {
 
   // MARK: Internal
@@ -229,5 +263,11 @@ class HapticGenerator: ImpactGenerator {
   // MARK: Fileprivate
 
   fileprivate let impact = UIImpactFeedbackGenerator(style: .light)
+}
+#else
+// MARK: - NullHapticGenerator
+
+class NullHapticGenerator: ImpactGenerator {
+  func generateImpact() { }
 }
 #endif

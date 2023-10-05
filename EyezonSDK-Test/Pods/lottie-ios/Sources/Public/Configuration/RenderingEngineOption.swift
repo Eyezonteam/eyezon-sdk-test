@@ -1,30 +1,5 @@
-// Created by Cal Stephens on 12/13/21.
-// Copyright © 2021 Airbnb Inc. All rights reserved.
-
-// MARK: - LottieConfiguration
-
-/// Global configuration options for Lottie animations
-public struct LottieConfiguration: Hashable {
-
-  public init(
-    renderingEngine: RenderingEngineOption = .mainThread,
-    decodingStrategy: DecodingStrategy = .codable)
-  {
-    self.renderingEngine = renderingEngine
-    self.decodingStrategy = decodingStrategy
-  }
-
-  /// The global configuration of Lottie,
-  /// which applies to all `LottieAnimationView`s by default.
-  public static var shared = LottieConfiguration()
-
-  /// The rendering engine implementation to use when displaying an animation
-  public var renderingEngine: RenderingEngineOption
-
-  /// The decoding implementation to use when parsing an animation JSON file
-  public var decodingStrategy: DecodingStrategy
-
-}
+// Created by Cal Stephens on 7/14/23.
+// Copyright © 2023 Airbnb Inc. All rights reserved.
 
 // MARK: - RenderingEngineOption
 
@@ -37,6 +12,8 @@ public enum RenderingEngineOption: Hashable {
   /// Uses the specified rendering engine
   case specific(RenderingEngine)
 
+  // MARK: Public
+
   /// The Main Thread rendering engine, which supports all Lottie features
   /// but runs on the main thread, which comes with some CPU overhead and
   /// can cause the animation to play at a low framerate when the CPU is busy.
@@ -45,6 +22,12 @@ public enum RenderingEngineOption: Hashable {
   /// The Core Animation rendering engine, that animates using Core Animation
   /// and has better performance characteristics than the Main Thread engine,
   /// but doesn't support all Lottie features.
+  ///  - In general, prefer using `RenderingEngineOption.automatic` over
+  ///    `RenderingEngineOption.coreAnimation`. The Core Animation rendering
+  ///    engine doesn't support all features supported by the Main Thread
+  ///    rendering engine. When using `RenderingEngineOption.automatic`,
+  ///    Lottie will automatically fall back to the Main Thread engine
+  ///    when necessary.
   public static var coreAnimation: RenderingEngineOption { .specific(.coreAnimation) }
 }
 
@@ -127,17 +110,4 @@ extension RenderingEngine: RawRepresentable, CustomStringConvertible {
   public var description: String {
     rawValue
   }
-}
-
-// MARK: - DecodingStrategy
-
-/// How animation files should be decoded
-public enum DecodingStrategy: Hashable {
-  /// Use Codable. This is the default strategy introduced on Lottie 3.
-  case codable
-
-  /// Manually deserialize a dictionary into an Animation.
-  /// This should be at least 2-3x faster than using Codable,
-  /// but since it's manually implemented, there might be issues while it's experimental.
-  case dictionaryBased
 }
