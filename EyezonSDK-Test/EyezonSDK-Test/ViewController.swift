@@ -14,10 +14,10 @@ var bundleID = "BundleID is empty"
 class ViewController: UIViewController {
     
     private enum Constants {
-        static let EYEZON_WIDGET_URL = "https://storage.googleapis.com/eyezonfortest/test-widget/webview.html?eyezon&businessId=6218dd27db9a30520ac435a8&language=ru&buttonId=6218e02a82d1c1eb6cc7db48&target=SKU-1&title=Samsung%20Television&apnToken=\(apnToken)&application=\(bundleID)&eyezonRegion=sandbox"
+        static let EYEZON_WIDGET_URL = "https://storage.googleapis.com/eyezonfortest/test-widget/webview.html?eyezon&businessId=5d63fe246c2590002eecef83&language=ru&buttonId=5ec26f248107de3797f0807c&target=SKU-1&title=Samsung%20Television&apnToken=\(apnToken)&application=\(bundleID)&eyezonR egion=ru"
         
-        static let EYEZON_BUSINESS_ID = "6218dd27db9a30520ac435a8"
-        static let EYEZON_BUTTON_ID = "6218e02a82d1c1eb6cc7db48"
+        static let EYEZON_BUSINESS_ID = "5d63fe246c2590002eecef83"
+        static let EYEZON_BUTTON_ID = "5ec26f248107de3797f0807c"
     }
     
     private var predefinedData: EyezonSDKData {
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         [.russia, .europe, .usa, .sandbox]
     }
     
-    private let selectedServer: ServerArea = .sandbox
+    private let selectedServer: ServerArea = .russia
     
     @IBAction func startButton(_ sender: Any) {
         openEyezon()
@@ -52,6 +52,7 @@ class ViewController: UIViewController {
     @IBAction func logOutButton(_ sender: Any) {
         logout()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,12 +66,15 @@ class ViewController: UIViewController {
         
         bundleID = Bundle.main.bundleIdentifier ?? "BundleID is empty"
         
+        UIPasteboard.general.string = apnToken
+        
         Eyezon.instance.initSdk(area: selectedServer) { [weak self, predefinedData, interfaceData] in
             guard let strongSelf = self else { return }
             let eyezonWebViewController = Eyezon.instance.openButton(data: predefinedData, interfaceBuilder: interfaceData, broadcastReceiver: strongSelf)
-            strongSelf.present(eyezonWebViewController, animated: true, completion: nil)
             
-            // strongSelf.navigationController?.pushViewController(eyezonWebViewController, animated: true)
+            // strongSelf.present(eyezonWebViewController, animated: true, completion: nil)
+            
+            strongSelf.navigationController?.pushViewController(eyezonWebViewController, animated: true)
         }
     }
     
